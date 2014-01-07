@@ -33,6 +33,20 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    [self userLocFollowWithHeadingMapView];
+ //   [self hardCodeMapView];
+}
+
+- (void)userLocFollowWithHeadingMapView
+{
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
+}
+
+- (void)hardCodeMapView
+{
     LocationDataController *model = [[LocationDataController alloc] init];
     Location *poi = [model getPointofInterest];
     CLLocationCoordinate2D poiCoodinates;
