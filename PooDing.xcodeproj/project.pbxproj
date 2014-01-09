@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		E9309756187B71E50091B57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9309755187B71E50091B57F /* Main.storyboard */; };
 		E9309759187B732D0091B57F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9309758187B732D0091B57F /* MapViewController.m */; };
-		E930975C187B73C50091B57F /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = E930975B187B73C50091B57F /* Location.m */; };
-		E930975F187B73D20091B57F /* LocationDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = E930975E187B73D20091B57F /* LocationDataController.m */; };
 		E9309761187B757C0091B57F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9309760187B757C0091B57F /* MapKit.framework */; };
 		E9309764187B78E20091B57F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9309763187B78E20091B57F /* HomeViewController.m */; };
 		E9409AAD187B6BD20053E142 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9409AAC187B6BD20053E142 /* Foundation.framework */; };
@@ -41,10 +39,6 @@
 		E9309755187B71E50091B57F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E9309757187B732D0091B57F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		E9309758187B732D0091B57F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		E930975A187B73C50091B57F /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		E930975B187B73C50091B57F /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		E930975D187B73D20091B57F /* LocationDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDataController.h; sourceTree = "<group>"; };
-		E930975E187B73D20091B57F /* LocationDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDataController.m; sourceTree = "<group>"; };
 		E9309760187B757C0091B57F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E9309762187B78E20091B57F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		E9309763187B78E20091B57F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -97,10 +91,6 @@
 				E9309755187B71E50091B57F /* Main.storyboard */,
 				E9309762187B78E20091B57F /* HomeViewController.h */,
 				E9309763187B78E20091B57F /* HomeViewController.m */,
-				E930975A187B73C50091B57F /* Location.h */,
-				E930975B187B73C50091B57F /* Location.m */,
-				E930975D187B73D20091B57F /* LocationDataController.h */,
-				E930975E187B73D20091B57F /* LocationDataController.m */,
 				E9309757187B732D0091B57F /* MapViewController.h */,
 				E9309758187B732D0091B57F /* MapViewController.m */,
 				E9409AB2187B6BD20053E142 /* PooDing */,
@@ -267,10 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E930975F187B73D20091B57F /* LocationDataController.m in Sources */,
 				E9309759187B732D0091B57F /* MapViewController.m in Sources */,
 				E9409ABD187B6BD20053E142 /* AppDelegate.m in Sources */,
-				E930975C187B73C50091B57F /* Location.m in Sources */,
 				E9409AB9187B6BD20053E142 /* main.m in Sources */,
 				E9309764187B78E20091B57F /* HomeViewController.m in Sources */,
 			);

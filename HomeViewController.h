@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapViewController.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController <passCoordinates>
 @property (weak, nonatomic) IBOutlet UIButton *searchB;
+@property (weak, nonatomic) IBOutlet UITextField *longitudeTF;
+@property (weak, nonatomic) IBOutlet UITextField *latitudeTF;
 
 @end

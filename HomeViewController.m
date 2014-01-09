@@ -7,6 +7,8 @@
 //
 
 #import "HomeViewController.h"
+#import "MapViewController.h"
+
 
 @interface HomeViewController ()
 
@@ -27,6 +29,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"mapSegue"]){
+        MapViewController *mVC = (MapViewController*)[segue destinationViewController];
+        NSString *fromLatitudeTF = _latitudeTF.text;
+        NSString *fromLongitudeTF =_longitudeTF.text;
+        mVC.fromLatTF = fromLatitudeTF;
+        mVC.fromLonTF = fromLongitudeTF;
+        [mVC setDelegate:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning

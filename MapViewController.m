@@ -7,14 +7,15 @@
 //
 
 #import "MapViewController.h"
-#import "Location.h"
-#import "LocationDataController.h"
 
 @interface MapViewController ()
 
 @end
 
 @implementation MapViewController
+@synthesize fromLatTF;
+@synthesize fromLonTF;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,9 +35,12 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    if ([CLLocationManager locationServicesEnabled])
     [self userLocFollowWithHeadingMapView];
- //   [self hardCodeMapView];
+    else
+    [self userInputCoordinatesMapView];
 }
+
 
 - (void)userLocFollowWithHeadingMapView
 {
@@ -45,13 +49,12 @@
     self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
 }
 
-- (void)hardCodeMapView
+- (void)userInputCoordinatesMapView
 {
-    LocationDataController *model = [[LocationDataController alloc] init];
-    Location *poi = [model getPointofInterest];
+    
     CLLocationCoordinate2D poiCoodinates;
-    poiCoodinates.latitude = poi.latitude;
-    poiCoodinates.longitude= poi.longitude;
+    poiCoodinates.latitude = [self.fromLatTF floatValue];
+    poiCoodinates.longitude= [self.fromLonTF floatValue];
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(poiCoodinates, 750, 750);
     
