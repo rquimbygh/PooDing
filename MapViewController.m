@@ -15,6 +15,11 @@
 @implementation MapViewController
 @synthesize fromLatTF;
 @synthesize fromLonTF;
+@synthesize fromAddr;
+@synthesize fromPOICoordinate;
+@synthesize isAddrPresent;
+@synthesize isLatLongPresent;
+@synthesize isLocServEnabled;
 @synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,12 +40,35 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if ([CLLocationManager locationServicesEnabled])
-    [self userLocFollowWithHeadingMapView];
+    if (self.isAddrPresent)
+        [self performStringGeocode:self.fromAddr];
+    else if (self.isLatLongPresent)
+        [self userInputCoordinatesMapView];
     else
-    [self userInputCoordinatesMapView];
+        [self userLocFollowWithHeadingMapView];
 }
 
+- (void)performStringGeocode:(NSString*) addr{
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:addr
+                 completionHandler:^(NSArray *placemarks, NSError *error){
+                     if (error)
+                     {
+                         NSLog(@"Geocode failed with error: %@", error);
+                         return;
+                     }
+                     CLPlacemark *placemark = [placemarks firstObject];
+                     [self sendPlacemark:placemark];
+                 }];
+}
+
+- (void)sendPlacemark:(CLPlacemark*) placemark{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        fromPOICoordinate = placemark.location.coordinate;
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.fromPOICoordinate, 750, 750);
+        [self.mapView setRegion:viewRegion animated:YES];
+    });
+}
 
 - (void)userLocFollowWithHeadingMapView
 {

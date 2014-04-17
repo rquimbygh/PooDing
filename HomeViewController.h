@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *searchB;
 @property (weak, nonatomic) IBOutlet UITextField *longitudeTF;
 @property (weak, nonatomic) IBOutlet UITextField *latitudeTF;
+@property (weak, nonatomic) IBOutlet UITextField *addressTF;
 
 @end
