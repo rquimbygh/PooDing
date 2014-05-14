@@ -13,13 +13,9 @@
 @end
 
 @implementation MapViewController
-@synthesize fromLatTF;
-@synthesize fromLonTF;
 @synthesize fromAddr;
 @synthesize fromPOICoordinate;
 @synthesize isAddrPresent;
-@synthesize isLatLongPresent;
-@synthesize isLocServEnabled;
 @synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,10 +38,8 @@
     [super viewDidAppear:animated];
     if (self.isAddrPresent)
         [self performStringGeocode:self.fromAddr];
-    else if (self.isLatLongPresent)
-        [self userInputCoordinatesMapView];
-    else
-        [self userLocFollowWithHeadingMapView];
+    else if (self.isLocSwitchOn)
+        [self userLocFollowWithHeading];
 }
 
 - (void)performStringGeocode:(NSString*) addr{
@@ -70,23 +64,11 @@
     });
 }
 
-- (void)userLocFollowWithHeadingMapView
+- (void)userLocFollowWithHeading
 {
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
-}
-
-- (void)userInputCoordinatesMapView
-{
-    
-    CLLocationCoordinate2D poiCoodinates;
-    poiCoodinates.latitude = [self.fromLatTF floatValue];
-    poiCoodinates.longitude= [self.fromLonTF floatValue];
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(poiCoodinates, 750, 750);
-    
-    [self.mapView setRegion:viewRegion animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

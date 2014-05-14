@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MapViewController.h"
 
-@interface HomeViewController : UIViewController <passCoordinates>
+@interface HomeViewController : UIViewController <passCoordinates, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *searchB;
-@property (weak, nonatomic) IBOutlet UITextField *longitudeTF;
-@property (weak, nonatomic) IBOutlet UITextField *latitudeTF;
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
+@property (weak, nonatomic) IBOutlet UISwitch *locSwitch;
 
 @end
